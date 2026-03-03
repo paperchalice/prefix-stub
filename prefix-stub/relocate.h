@@ -9,8 +9,14 @@ extern "C"
 #endif
 
   PREFIX_STUB_EXPORT const char *prefix_stub_get_prefix(void);
+  PREFIX_STUB_EXPORT const wchar_t *prefix_stub_get_prefix_w(void);
 
-  PREFIX_STUB_EXPORT const char *prefix_stub_relocate(const char *sub_dir);
+  PREFIX_STUB_EXPORT void prefix_stub_set_orig_prefix(const char *orig_prefix);
+  PREFIX_STUB_EXPORT void
+  prefix_stub_set_orig_prefix_w(const wchar_t *orig_prefix);
+
+  PREFIX_STUB_EXPORT const char *prefix_stub_relocate(const char *dir);
+  PREFIX_STUB_EXPORT const wchar_t *prefix_stub_relocate_w(const wchar_t *dir);
 
 #ifdef __cplusplus
 }

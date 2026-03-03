@@ -1,15 +1,20 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 4.2)
+
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD d0edc3af-4c50-42ea-a356-e2862fe7a444)
 
 project(
   prefix-stub
   VERSION 0.0.0
   DESCRIPTION "Detect prefix on Windows"
-  LANGUAGES C
+  LANGUAGES C CXX
 )
 
-set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD ${CMAKE_C_STANDARD_LATEST})
+set(CMAKE_CXX_STANDARD ${CMAKE_CXX_STANDARD_LATEST})
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
+set(CMAKE_CXX_MODULE_STD ON)
 
 set(CMAKE_EXPERIMENTAL_EXPORT_PACKAGE_INFO b80be207-778e-46ba-8080-b23bba22639e)
 
@@ -19,7 +24,7 @@ include(CMakePackageConfigHelpers)
 
 add_library(prefix-stub
   SHARED
-  relocate.c
+  relocate.cpp
   app.manifest
 )
 generate_export_header(prefix-stub
