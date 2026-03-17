@@ -22,4 +22,10 @@ extern "C"
 }
 #endif
 
+#ifdef _MSC_VER
+#ifndef prefix_stub_EXPORTS
+#pragma comment(lib, "prefix-stub.lib")
+#endif
+#endif
+
 #endif // PREFIX_STUB_RELOCATE_H
