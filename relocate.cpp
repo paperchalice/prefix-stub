@@ -91,6 +91,14 @@ template <typename T> static const T *relocate_impl(const T *dir)
   std::wstring_view orign_prefix_view = orig_prefix.c_wstr();
   std::wstring_view pth_view = pth.c_str();
 
+  if (pth.is_relative())
+  {
+    paths &result = path_map[pth];
+    if (result.empty())
+      result = paths(current_prefix.pth / pth_view);
+    return result.get_pchar<T>();
+  }
+
   if (pth_view.size() < orign_prefix_view.size())
     return dir;
 
@@ -102,9 +110,8 @@ template <typename T> static const T *relocate_impl(const T *dir)
     return dir;
   pth_view.remove_prefix(1);
   paths &result = path_map[pth];
-  if (!result.empty())
-    return result.get_pchar<T>();
-  result = paths(current_prefix.pth / pth_view);
+  if (result.empty())
+    result = paths(current_prefix.pth / pth_view);
   return result.get_pchar<T>();
 }
 

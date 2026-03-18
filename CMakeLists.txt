@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 4.3)
 
-set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD d0edc3af-4c50-42ea-a356-e2862fe7a444)
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD 451f2fe2-a8a2-47c3-bc32-94786d8fc91b)
 
 project(
   prefix-stub
@@ -15,8 +15,6 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 set(CMAKE_CXX_MODULE_STD ON)
-
-set(CMAKE_EXPERIMENTAL_EXPORT_PACKAGE_INFO b80be207-778e-46ba-8080-b23bba22639e)
 
 include(GNUInstallDirs)
 include(GenerateExportHeader)
